@@ -87,13 +87,13 @@ delayMicroseconds(100);
     delay(500);
 
 
-if (distanceLS <=3) 
+if (distanceLS <=2) 
     {
-    AdjustCourseRight();  
+    AdjustCourseLeft();  
     }
-       else if (distanceRS <=3)
+       else if (distanceRS <=2)
           { 
-          AdjustCourseLeft();
+          AdjustCourseRight();
            }
                else if (distancePRS <=3)
                {

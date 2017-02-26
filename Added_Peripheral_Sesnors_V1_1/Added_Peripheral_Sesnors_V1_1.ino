@@ -16,8 +16,6 @@ const int trigPinPLS = 3;
 const int echoPinPLS = 4;
 const int trigPinPRS = 6;
 const int echoPinPRS = 5;
-
-
 // defines variables
 long durationLS;
 int distanceLS;
@@ -86,54 +84,18 @@ delayMicroseconds(100);
 
     delay(500);
 
-
-if (distanceLS <=3) 
-    {
-    AdjustCourseRight();  
-    }
-       else if (distanceRS <=3)
-          { 
-          AdjustCourseLeft();
-           }
-               else if (distancePRS <=3)
-               {
-                 AdjustCourseRight();
-               }
-                      else if (distancePLS <=3)
-                     {
-                       AdjustCourseLeft();
-                     }
-                              else  
-                             { 
-                             Forward();
-                             }  
-    }
-
-
-
-void stopRobot() 
-{
-  servoLeft.write(90);
-  servoRight.write(90);
+    Serial.print(" ---New Set Of Readings--- ");    // This set of code simply output the data values to the computer instead of say LCD screen. 
+    Serial.print("Ls-"); Serial.print(distanceLS);
+    Serial.print("Fs-"); Serial.print(distanceFS);
+    Serial.print("Rs-"); Serial.print(distanceRS);
+    Serial.print("PLS-"); Serial.print(distancePLS);
+    Serial.print("PRS-"); Serial.print(distancePRS);
+    Serial.println(" ");
 }
 
-void Forward() 
-{
-  servoLeft.write(88);
-  servoRight.write(92);
-}
 
-void AdjustCourseLeft()
-{
-  servoLeft.write(90);
-  servoRight.write(92); 
-}
 
-void AdjustCourseRight()
-{
-  servoLeft.write(88);
-  servoRight.write(90); 
-}
+
 
 
 
@@ -153,6 +115,4 @@ pinMode(trigPinPLS, OUTPUT);
 pinMode(echoPinPLS, INPUT); 
 pinMode(trigPinPRS, OUTPUT); 
 pinMode(echoPinPRS, INPUT); 
-servoLeft.attach(7); 
-servoRight.attach(2);
 }

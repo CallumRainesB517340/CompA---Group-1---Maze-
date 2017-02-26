@@ -87,26 +87,27 @@ delayMicroseconds(100);
     delay(500);
 
 
-if (distanceLS <=3) 
-    {
-    AdjustCourseRight();  
-    }
-       else if (distanceRS <=3)
-          { 
-          AdjustCourseLeft();
-           }
-               else if (distancePRS <=3)
-               {
-                 AdjustCourseRight();
-               }
-                      else if (distancePLS <=3)
+ if (distancePRS <=2)
+          {
+          AdjustCourseReverseRight();
+          }
+              else if (distancePLS <=2)
                      {
-                       AdjustCourseLeft();
+                       AdjustCourseReverseLeft();
                      }
-                              else  
-                             { 
-                             Forward();
-                             }  
+                  else if (distanceLS <=2) 
+                          {
+                          AdjustCourseLeft();  
+                          }
+                             else if (distanceRS <=2)
+                                { 
+                                AdjustCourseRight();
+                                 }
+
+                                        else  
+                                       { 
+                                       Forward();
+                                       }  
     }
 
 
@@ -125,17 +126,27 @@ void Forward()
 
 void AdjustCourseLeft()
 {
-  servoLeft.write(90);
+  servoLeft.write(89);
   servoRight.write(92); 
 }
 
 void AdjustCourseRight()
 {
   servoLeft.write(88);
+  servoRight.write(91); 
+}
+
+void AdjustCourseReverseLeft()
+{
+  servoLeft.write(93);
   servoRight.write(90); 
 }
 
-
+void AdjustCourseReverseRight()
+{
+  servoLeft.write(90);
+  servoRight.write(87); 
+}
 
 
 
